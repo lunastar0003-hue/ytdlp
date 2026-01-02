@@ -1,223 +1,244 @@
-┌─────────────────────────────────────────────────────────────────┐
-│                                                                 │
-│                          y t d l p                              │
-│                    Modern Media Downloader                      │
-│                                                                 │
-└─────────────────────────────────────────────────────────────────┘
+# ytdlp
+
+> Modern Media Downloader - A powerful, feature-rich command-line utility for downloading media content from across the internet.
 
-A powerful, feature-rich command-line utility for downloading media content from
-across the internet. Built for speed, reliability, and simplicity.
+---
 
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+## Quick Start
 
-▸ QUICK START
+```bash
+# Basic download
+ytdlp https://example.com/video
 
-  $ ytdlp [URL] [OPTIONS]
+# Download with custom format
+ytdlp -f best https://example.com/video
 
-  Basic download:
-    ytdlp https://example.com/video
+# Save with specific filename
+ytdlp -o "%(title)s.%(ext)s" https://example.com/video
+```
 
-  Download with custom format:
-    ytdlp -f best https://example.com/video
+---
 
-  Save with specific filename:
-    ytdlp -o "%(title)s.%(ext)s" https://example.com/video
+## Features
 
+- **Multi-platform support** - Windows, macOS, Linux
+- **Batch downloading** - Playlist support
+- **Flexible output formatting** - Custom naming templates
+- **Automatic quality detection** - Format fallback
+- **Subtitle & metadata extraction** - Multiple formats
+- **Resume capability** - Continue incomplete downloads
+- **Concurrent operations** - Faster performance
+- **Format filtering** - Advanced selection options
+- **FFmpeg integration** - Post-processing support
 
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+---
+
+## Installation
+
+### Via pip (recommended)
+
+```bash
+pip install ytdlp
+```
 
-▾ FEATURES
+### From source
 
-  ✓ Multi-platform support (Windows, macOS, Linux)
-  ✓ Batch downloading with playlist support
-  ✓ Flexible output formatting and naming
-  ✓ Automatic quality detection and fallback
-  ✓ Subtitle and metadata extraction
-  ✓ Resume and continue incomplete downloads
-  ✓ Concurrent operations for faster performance
-  ✓ Extensive format filtering options
-  ✓ Post-processing with FFmpeg integration
+```bash
+git clone https://github.com/lunastar0003-hue/ytdlp.git
+cd ytdlp
+pip install -e .
+```
 
+### System package managers
 
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+**macOS (Homebrew):**
+```bash
+brew install ytdlp
+```
 
-▾ INSTALLATION
+**Ubuntu/Debian:**
+```bash
+sudo apt install ytdlp
+```
 
-  Via pip (recommended):
-    pip install ytdlp
+---
 
-  From source:
-    git clone https://github.com/lunastar0003-hue/ytdlp.git
-    cd ytdlp
-    pip install -e .
+## Common Options
 
-  System package managers:
-    macOS (Homebrew):
-      brew install ytdlp
+### Output Control
+| Option | Description |
+|--------|-------------|
+| `-o, --output TEMPLATE` | Save with custom filename template |
+| `-P, --paths DIR` | Directory structure for downloads |
+| `-w, --no-overwrites` | Skip existing files |
 
-    Ubuntu/Debian:
-      sudo apt install ytdlp
+### Quality Settings
+| Option | Description |
+|--------|-------------|
+| `-f, --format FORMAT` | Select video format (default: best) |
+| `-S, --sort-fields FIELDS` | Sort available formats |
+| `--format-sort ALGO` | Advanced format sorting |
 
+### Content Options
+| Option | Description |
+|--------|-------------|
+| `-x, --extract-audio` | Extract audio only |
+| `-k, --keep-video` | Keep video after extraction |
+| `--audio-format FORMAT` | Audio codec (best, aac, vorbis, etc.) |
+| `--audio-quality QUALITY` | Audio bitrate (128, 192, 256, etc.) |
 
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+### Subtitle Handling
+| Option | Description |
+|--------|-------------|
+| `--write-subs` | Download available subtitles |
+| `--all-subs` | Download all subtitle languages |
+| `--sub-format FORMAT` | Subtitle format (srt, vtt, etc.) |
 
-▾ COMMON OPTIONS
+### Advanced
+| Option | Description |
+|--------|-------------|
+| `-j, --dump-json` | Output as JSON |
+| `--batch-file FILE` | Download from file list |
+| `--parallel N` | Number of parallel downloads |
 
-  Output Control:
-    -o, --output TEMPLATE     Save with custom filename template
-    -P, --paths DIR           Directory structure for downloads
-    -w, --no-overwrites       Skip existing files
+---
 
-  Quality Settings:
-    -f, --format FORMAT       Select video format (default: best)
-    -S, --sort-fields FIELDS  Sort available formats
-    --format-sort ALGO        Advanced format sorting
+## Examples
 
-  Content Options:
-    -x, --extract-audio       Extract audio only
-    -k, --keep-video          Keep video after extraction
-    --audio-format FORMAT     Audio codec (best, aac, vorbis, etc.)
-    --audio-quality QUALITY   Audio bitrate (128, 192, 256, etc.)
+### Download best quality video
+```bash
+ytdlp https://example.com/video
+```
 
-  Subtitle Handling:
-    --write-subs              Download available subtitles
-    --all-subs                Download all subtitle languages
-    --sub-format FORMAT       Subtitle format (srt, vtt, etc.)
+### Extract audio as MP3
+```bash
+ytdlp -x --audio-format mp3 --audio-quality 192 https://example.com/video
+```
 
-  Advanced:
-    -j, --dump-json           Output as JSON
-    --batch-file FILE         Download from file list
-    --parallel N              Number of parallel downloads
+### Download entire playlist
+```bash
+ytdlp https://example.com/playlist
+```
 
+### Download with subtitles
+```bash
+ytdlp --write-subs --all-subs https://example.com/video
+```
 
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+### Custom output naming
+```bash
+ytdlp -o "Videos/%(uploader)s/%(title)s.%(ext)s" https://example.com/video
+```
 
-▾ EXAMPLES
+### Download specific format by resolution
+```bash
+ytdlp -f "bestvideo[height<=1080]+bestaudio/best" https://example.com/video
+```
 
-  Download best quality video:
-    $ ytdlp https://example.com/video
+---
 
-  Extract audio as MP3:
-    $ ytdlp -x --audio-format mp3 --audio-quality 192 URL
+## Dependencies
 
-  Download entire playlist:
-    $ ytdlp https://example.com/playlist
+### Required
+- Python 3.8 or higher
+- FFmpeg (for audio extraction and processing)
 
-  Download with subtitles:
-    $ ytdlp --write-subs --all-subs https://example.com/video
+### Optional
+- AtomicParsley (for metadata tagging)
+- Mutagen (for audio metadata)
 
-  Custom output naming:
-    $ ytdlp -o "Videos/%(uploader)s/%(title)s.%(ext)s" URL
+---
 
-  Download specific format by resolution:
-    $ ytdlp -f "bestvideo[height<=1080]+bestaudio/best" URL
+## Configuration
 
+Configuration files can be placed in:
+- `~/.ytdlp/config` (global configuration)
+- `.ytdlp.conf` (project-specific settings)
 
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+### Example config
 
-▾ DEPENDENCIES
+```ini
+[ytdlp]
+default-search = ytsearch
+output = Videos/%(title)s.%(ext)s
+quiet = True
+no-warnings = True
+```
 
-  Required:
-    • Python 3.8+
-    • FFmpeg (for audio extraction and processing)
+---
 
-  Optional:
-    • AtomicParsley (for metadata tagging)
-    • Mutagen (for audio metadata)
+## Supported Sites
 
+Over 1000 websites including:
 
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+- YouTube
+- Vimeo
+- TikTok
+- Instagram
+- Twitch
+- SoundCloud
+- Dailymotion
+- Twitter
+- And many more...
 
-▾ CONFIGURATION
+**Full list:** See [SITES.md](https://github.com/lunastar0003-hue/ytdlp/blob/master/SITES.md)
 
-  Config files:
-    ~/.ytdlp/config         Global configuration
-    .ytdlp.conf             Project-specific settings
+---
 
-  Example config:
-    [ytdlp]
-    default-search = ytsearch
-    output = Videos/%(title)s.%(ext)s
-    quiet = True
-    no-warnings = True
+## Troubleshooting
 
+### Video won't download
+- Update ytdlp to the latest version
+- Check if the URL is public and accessible
+- Verify FFmpeg is installed for certain formats
 
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+### Low download speed
+- Use `--socket-timeout N` to increase timeout
+- Try `--fragment-retries N` for fragmented streams
+- Check your internet connection
 
-▾ SUPPORTED SITES
+### Format unavailable
+- Run `ytdlp -F URL` to list all available formats
+- Use a different format selection syntax
+- Check if content is region-restricted
 
-  1000+ websites including:
-    • YouTube
-    • Vimeo
-    • TikTok
-    • Instagram
-    • Twitch
-    • SoundCloud
-    • Dailymotion
-    • Twitter
-    • And many more...
+---
 
-  Full list: https://github.com/lunastar0003-hue/ytdlp/blob/master/SITES.md
+## License
 
+GPL-3.0 License - See [LICENSE](LICENSE) file for details
 
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+---
 
-▾ TROUBLESHOOTING
+## Contributing
 
-  Video won't download:
-    → Update ytdlp to the latest version
-    → Check if the URL is public and accessible
-    → Verify FFmpeg is installed for certain formats
+Contributions are welcome! Please:
 
-  Low download speed:
-    → Use --socket-timeout N to increase timeout
-    → Try --fragment-retries N for fragmented streams
-    → Check your internet connection
+1. Fork the repository
+2. Create a feature branch
+3. Commit your changes
+4. Push and submit a pull request
 
-  Format unavailable:
-    → Run 'ytdlp -F URL' to list all available formats
-    → Use a different format selection syntax
-    → Check if content is region-restricted
+For issues and feature requests: [GitHub Issues](https://github.com/lunastar0003-hue/ytdlp/issues)
 
+---
 
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+## Changelog
 
-▾ LICENSE
+### v0.1.0 - Initial release
+- Core downloading functionality
+- Format selection
+- Basic output formatting
+- FFmpeg integration
 
-  GPL-3.0 License - See LICENSE file for details
+---
 
+## Links
 
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+- **Repository:** https://github.com/lunastar0003-hue/ytdlp
+- **Issues:** https://github.com/lunastar0003-hue/ytdlp/issues
+- **Wiki:** https://github.com/lunastar0003-hue/ytdlp/wiki
 
-▾ CONTRIBUTING
+---
 
-  Contributions welcome! Please:
-    1. Fork the repository
-    2. Create a feature branch
-    3. Commit your changes
-    4. Push and submit a pull request
-
-  For issues and feature requests, visit:
-    https://github.com/lunastar0003-hue/ytdlp/issues
-
-
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-
-▾ CHANGELOG
-
-  v0.1.0 - Initial release
-    • Core downloading functionality
-    • Format selection
-    • Basic output formatting
-    • FFmpeg integration
-
-
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-
-  Repository: https://github.com/lunastar0003-hue/ytdlp
-  Issues:     https://github.com/lunastar0003-hue/ytdlp/issues
-  Docs:       https://github.com/lunastar0003-hue/ytdlp/wiki
-
-┌─────────────────────────────────────────────────────────────────┐
-│  Made with dedication for media enthusiasts everywhere         │
-└─────────────────────────────────────────────────────────────────┘
+<div align="center">Made with dedication for media enthusiasts everywhere</div>
