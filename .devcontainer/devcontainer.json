@@ -1,5 +1,11 @@
 {
   "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
+  "features": {
+    "ghcr.io/devcontainers/features/git:1": {},
+    "ghcr.io/devcontainers/features/node:latest": {},
+    "ghcr.io/devcontainers/features/python:latest": {}
+  },
+  "postCreateCommand": "apt-get update && apt-get install -y aria2 ffmpeg libfuse3-dev libfuse3-3 yt-dlp && npm install -g opencode-ai filen-cli && curl -fsSL https://ampcode.com/install.sh | bash",
   "postStartCommand": [
     "cd /workspaces/ytdlp && ./filen.sh",
     "cd /workspaces/ytdlp/antigravity-to-openai && npm start &"
