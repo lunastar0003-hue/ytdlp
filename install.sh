@@ -23,11 +23,11 @@ npm install -g @filen/cli
 
 # Install OpenCode
 echo "Installing OpenCode..."
-curl -fsSL https://opencode.ai/install.sh | bash
+curl -fsSL https://opencode.ai/install | bash
 
 # Install Amp Code
 echo "Installing Amp Code..."
-curl -fsSL https://ampcode.com/install | bash
+curl -fsSL https://ampcode.com/install.sh | bash
 
 echo ""
 echo "✓ Installation complete!"
