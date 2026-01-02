@@ -1,0 +1,7 @@
+{
+  "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
+  "postStartCommand": [
+    "cd /workspaces/ytdlp && ./filen.sh",
+    "cd /workspaces/ytdlp/antigravity-to-openai && npm start &"
+  ]
+}
