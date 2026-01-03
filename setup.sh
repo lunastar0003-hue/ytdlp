@@ -21,9 +21,7 @@ npm install -g @filen/cli
 
 # Install OpenCode
 echo "🤖 Installing OpenCode..."
-if ! command -v opencode &> /dev/null; then
-    curl -fsSL https://opencode.ai/install | bash
-fi
+npm install -g opencode-ai
 
 # Install Amp Code
 echo "⚡ Installing Amp Code..."
