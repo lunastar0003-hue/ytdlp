@@ -1,0 +1,11 @@
+{
+  "name": "ytdlp",
+  "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
+  "postStartCommand": "./filen.sh",
+  "customizations": {
+    "vscode": {
+      "extensions": []
+    }
+  },
+  "remoteUser": "root"
+}
