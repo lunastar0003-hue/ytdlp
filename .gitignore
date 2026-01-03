@@ -1,5 +1,11 @@
-# Filen mount symlink
+# Filen mount symlink and auth
 filen
+.filen-cli-auth-config
+
+# Authentication files - NEVER commit these!
+.env
+**/antigravity-accounts.json
+**/.filen-cli-auth-config
 
 # Python
 __pycache__/

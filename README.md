@@ -2,6 +2,20 @@
 
 > Modern Media Downloader - A powerful, feature-rich command-line utility for downloading media content from across the internet.
 
+## 🔄 Quick Setup for New Codespaces
+
+Run this once in your new Codespace to set up all tools with authentication:
+
+```bash
+bash setup.sh
+```
+
+This will install and configure:
+- aria2, ffmpeg, yt-dlp
+- Filen CLI (authenticated)
+- OpenCode/AntiGravity (authenticated)
+- Amp Code (authenticated)
+
 ---
 
 ## Quick Start
